@@ -45,21 +45,19 @@ router.get('/lovedones/:id', (req, res) => {
         res.json(user.lovedOnes.id(req.params.id))
     })
 })
+// Get one specific gift for a loved one
+router.get('/lovedones/:id/gifts/:gid', (req, res) => {
+    Gift.findById(req.params.gid, (err, gift) => {
+        res.json(gift)
+    })
+})
 
 //Put edit a specific gift for a lovedone
 router.put('/lovedones/:id/gifts/:gid', (req, res) => {
     Gift.findById(req.params.gid, (err, gift) => {
-        console.log(gift)
-        // gift.remove()
-        // res.send(gift)
-        User.findById(req.user._id, (err, user) => {
-            // res.json(gift)
-            gift['name'] = req.body.name
-            gift['price'] = req.body.price
-            user.save((err, user) => {
-                res.json(gift)
-            })
-        })
+        gift['name'] = req.body.name,
+        gift['price'] = req.body.price
+        gift.save()
     })
 })
 
