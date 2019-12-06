@@ -1,6 +1,13 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
+
+const lovedOneSchema = new mongoose.Schema({
+    name: String,
+    age: Number,
+    gifts: [{ type: mongoose.Schema.Types.ObjectId, ref: "Gift"}]
+})
+
 const userSchema = new mongoose.Schema({
     name:{
         type: String,
@@ -19,7 +26,10 @@ const userSchema = new mongoose.Schema({
         required: [true, 'You must enter an email'],
         minlength: [5, "Email must be between 5 and 99 characters"],
         maxlength:[99, "Email must be between 5 and 99 characters"]
-    }
+    },
+
+    lovedOnes: [lovedOneSchema]
+
     
 })
 

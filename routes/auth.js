@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/user')
 
 router.post('/signup', (req, res) => {
+    console.log('💩')
     // See if the Email is already in the database 
     User.findOne({email: req.body.email}, (err, user) => {
         // if yes return an error 

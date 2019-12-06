@@ -15,7 +15,7 @@ class Login extends React.Component {
     }
     handleSubmit = (e) => {
         e.preventDefault()
-        axios.post('/auth/login', {
+        axios.post('http://localhost:3001/auth/login', {
             email: this.state.email,
             password: this.state.password
         }).then(response => {
