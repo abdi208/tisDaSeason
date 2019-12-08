@@ -18,7 +18,7 @@ class LovedOneDetail extends React.Component {
         }
         axios.get(`http://localhost:3001/api/lovedones/${this.props.match.params.id}/gifts`, config)
         .then(response => {
-            // console.log(response)
+            console.log(response)
                 this.setState(
                     { lovedone: response.data}
                     )
