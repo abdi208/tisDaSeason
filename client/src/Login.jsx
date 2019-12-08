@@ -1,11 +1,12 @@
 import React from 'react';
 import axios from 'axios';
-
+import { Redirect } from 'react-router-dom';
 class Login extends React.Component {
     state = {
         email: '',
         password: '',
-        message: ''
+        message: '',
+        redirect: ''
     }
 
     handleChange = (e) => {
@@ -24,21 +25,36 @@ class Login extends React.Component {
             }else {
                 localStorage.setItem('mernToken', response.data.token)
                 this.props.liftToken(response.data)
+                this.setState({ redirect: <Redirect to={'/profile'} /> })
             }
         }).catch(err => {
             console.log(err)
         })
     }
     render() {
+        var output;
+        if (this.state.redirect) {
+            output = this.state.redirect;
+        } else {
+            output = (
+                <div className="App">
+
+                <div className="Login">
+                    <h3>Log into your Account</h3>
+                    <form onSubmit={this.handleSubmit}>
+                        Email: <input type="text" name="email" onChange={this.handleChange} value={this.state.email}/>
+                        Password: <input type="password" name="password" onChange={this.handleChange} value={this.state.password}/> 
+                        <input type="submit" value="Log In"/>
+                    </form>
+                </div>
+    
+                </div>
+            )
+        }
         return (
-            <div className="Login">
-                <h3>Log into your Account</h3>
-                <form onSubmit={this.handleSubmit}>
-                    Email: <input type="text" name="email" onChange={this.handleChange} value={this.state.email}/>
-                    Password: <input type="password" name="password" onChange={this.handleChange} value={this.state.password}/> 
-                    <input type="submit" value="Log In"/>
-                </form>
-            </div>
+            <>
+            {output}
+            </>
         )
     }
 }

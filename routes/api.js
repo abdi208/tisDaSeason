@@ -8,7 +8,7 @@ const router = express.Router()
 router.get('/lovedones', (req, res)=> {
     console.log(`session`, req.user)
     User.findById(req.user._id, (err, user) => {
-        res.json(user)
+        res.json(user.lovedOnes)
     })
 })
 
@@ -24,7 +24,13 @@ router.post('/lovedones', (req, res) => {
     }).catch((err) => console.log(err))
 })
 
-// Post create a gift for every lovedone 
+router.get('/lovedones/:id/gifts', (req, res) => {
+    User.findById(req.user._id).populate('lovedOnes.gifts').exec((err, user) => {
+        res.json(user.lovedOnes.id(req.params.id).gifts)
+    })
+})
+
+// Post create a gift for a lovedone 
 router.post('/lovedones/:id/gifts', (req, res) => {
     console.log('hello world')
     Gift.create({
@@ -42,13 +48,13 @@ router.post('/lovedones/:id/gifts', (req, res) => {
 // Get the gifts for a specific lovedone
 router.get('/lovedones/:id', (req, res) => {
     User.findById(req.user._id, (err, user) => {
-        res.json(user.lovedOnes.id(req.params.id))
+        res.json(user.lovedOnes.id(req.params.id).gifts)
     })
 })
 // Get one specific gift for a loved one
 router.get('/lovedones/:id/gifts/:gid', (req, res) => {
     Gift.findById(req.params.gid, (err, gift) => {
-        res.json(gift)
+        res.json(gift.name)
     })
 })
 
