@@ -1,13 +1,13 @@
 import React from 'react';
 import axios from 'axios';
-import { Redirect, Link } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 class LovedOneDetail extends React.Component {
 
     state = {
         lovedone: [],
         name: '',
-        redirect: ''
+        price: '',
     }
 
     componentDidMount = () => {
@@ -42,43 +42,36 @@ class LovedOneDetail extends React.Component {
         }
         axios.post(`http://localhost:3001/api/lovedones/${this.props.match.params.id}/gifts`,{
             name: this.state.name,
+            price: this.state.price
         }, config)
         .then(response => {
             this.setState({
                 name: this.state.name,
-                redirect: <Redirect to={'/profile'} />
+                price: this.state.price,
+                
             })
         }).catch(err => {
             console.log(err)
+            console.log(this.state.redirect)
         })
     
     }
 
         render () {
-            var output;
-        if (!this.state.redirect) {
-            output = this.state.redirect;
-        } else {
-            const mappedGifts = this.state.lovedone.map((lovedone, id) => <div key={id}><p><Link to={`/lovedone/${this.props.match.params.id}/giftedit/${lovedone._id}`}>{lovedone.name}</Link></p></div>)
-            output = (
+    const mappedGifts = this.state.lovedone.map((lovedone, id) => <div key={id}><p><Link to={`/lovedone/${this.props.match.params.id}/giftedit/${lovedone._id}`}>{lovedone.name}</Link></p></div>)
+            return (
+
+                <>
                 <div className='App'>
                     <h1>welcome to details</h1>
                     {mappedGifts}
                     <form onSubmit={this.handleSubmit}>
                         <input type="text" onChange={this.handleChange} name='name' placeholder='Create a gift'/><br />
-                        <input type="submit"></input>
-                        {/* <button type="submit"><Link to={'/profile'}>Submit</Link></button> */}
+                        <input type="hidden" onChange={this.handleChange} name='price' placeholder='add a price'/><br />
+                        <Button type="submit"><Link style={{color: 'black', textDecoration: 'none'}} to={'/profile'}>Submit</Link></Button>
+                        
                     </form>
-
-                    </div>
-      )
-    }
-        
-            return (
-
-                <>
-                
-                        {output}
+                </div>
                         
                 </>
                 

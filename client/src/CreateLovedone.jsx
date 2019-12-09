@@ -1,9 +1,9 @@
 import React from 'react';
 import axios from 'axios';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-
+import './css/homepage.css';
 
 class CreateLovedOne extends React.Component {
 
@@ -43,11 +43,14 @@ class CreateLovedOne extends React.Component {
     render() {
         return(
             <>
+            <div className='text'>
                 <form onSubmit={this.handleOnSubmit}>
                 <TextField type="text" name="name" onChange={this.handleChange} value={this.state.name} placeholder='Enter a name'/> <br/>
                 <TextField type="text" name="age" onChange={this.handleChange} value={this.state.age} placeholder='Enter an age'/> <br />
                 <Button type="submit">Submit</Button>
             </form>
+
+            </div>
 
             {this.state.redirect}
             </>

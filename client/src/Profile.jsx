@@ -1,8 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+import './css/homepage.css';
 
 class Profile extends React.Component  {
     state = {
@@ -36,8 +35,11 @@ class Profile extends React.Component  {
         
         return (
             <>
+            <div className='text'>
             <h1>WELCOME TO YOUR PROFILE PAGE</h1>
+
             {mappedLovedOnes}
+            </div>
             
             </>
         )

@@ -54,7 +54,7 @@ router.get('/lovedones/:id', (req, res) => {
 // Get one specific gift for a loved one
 router.get('/lovedones/:id/gifts/:gid', (req, res) => {
     Gift.findById(req.params.gid, (err, gift) => {
-        res.json(gift.name)
+        res.json(gift)
     })
 })
 
@@ -64,6 +64,7 @@ router.put('/lovedones/:id/gifts/:gid', (req, res) => {
         gift['name'] = req.body.name,
         gift['price'] = req.body.price
         gift.save()
+        res.json(gift.name)
     })
 })
 

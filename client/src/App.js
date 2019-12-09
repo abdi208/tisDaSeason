@@ -9,7 +9,6 @@ import axios from 'axios';
 
 import { 
   BrowserRouter as Router,
-  Link,
   Route
   
 } from 'react-router-dom'
@@ -89,8 +88,7 @@ class App extends React.Component {
     if(this.state.user) {
       contents = (
         <>
-          <p>Hello, {this.state.user.name}</p>
-          <button onClick={this.handleClick}>Test the protected route</button>
+          {/* <button onClick={this.handleClick}>Test the protected route</button> */}
           <button onClick={this.logout}>Logout</button><br />
           <p>{this.state.lockedResults}</p>
 
@@ -99,14 +97,16 @@ class App extends React.Component {
     } else {
       contents = (
       <>
-        <Signup liftToken={this.liftToken} />
-        <Login liftToken={this.liftToken} />
+        {/* <Signup liftToken={this.liftToken} />
+        <Login liftToken={this.liftToken} /> */}
 
       </>
       )
     }
     return (
+    
       <Router>
+      {contents}
         <Route exact path = '/' render= { () => <Homepage token={this.state.token} /> }/>
         <Route exact path ='/signup' render={ ()=> <Signup liftToken={this.liftToken} /> } />
         <Route exact path ='/login' render={ ()=> <Login liftToken={this.liftToken} /> } />
@@ -114,6 +114,7 @@ class App extends React.Component {
         <Route exact path ='/lovedonedetail/:id' render={ (props) => <LovedOneDetail  {...props} token={this.state.token} /> } />
         <Route exact path ='/lovedone/:id/giftedit/:gid' render={ (props) => <GiftEdit  {...props} token={this.state.token} /> } />
         <Route exact path ='/createlovedone' render={ (props) => <CreateLovedOne  {...props} token={this.state.token} /> } />
+        
       </Router>
     )
   }
