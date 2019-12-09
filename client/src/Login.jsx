@@ -33,7 +33,7 @@ class Login extends React.Component {
             }else {
                 localStorage.setItem('mernToken', response.data.token)
                 this.props.liftToken(response.data)
-                this.setState({ redirect: <Redirect to={'/profile'} /> })
+                this.setState({ redirect: <Redirect to={'/createlovedone'} /> })
             }
         }).catch(err => {
             console.log(err)

@@ -46,7 +46,7 @@ class LovedOneDetail extends React.Component {
         .then(response => {
             this.setState({
                 name: this.state.name,
-                redirect: <Redirect to={'/'} />
+                redirect: <Redirect to={'/profile'} />
             })
         }).catch(err => {
             console.log(err)
@@ -55,21 +55,30 @@ class LovedOneDetail extends React.Component {
     }
 
         render () {
-        const mappedGifts = this.state.lovedone.map((lovedone, id) => <div key={id}><p><Link to={`/lovedone/${this.props.match.params.id}/giftedit/${lovedone._id}`}>{lovedone.name}</Link></p></div>)
-            return (
-
-                <>
+            var output;
+        if (!this.state.redirect) {
+            output = this.state.redirect;
+        } else {
+            const mappedGifts = this.state.lovedone.map((lovedone, id) => <div key={id}><p><Link to={`/lovedone/${this.props.match.params.id}/giftedit/${lovedone._id}`}>{lovedone.name}</Link></p></div>)
+            output = (
                 <div className='App'>
                     <h1>welcome to details</h1>
                     {mappedGifts}
                     <form onSubmit={this.handleSubmit}>
                         <input type="text" onChange={this.handleChange} name='name' placeholder='Create a gift'/><br />
                         <input type="submit"></input>
-                        <button><Link to={'/profile'}>profile</Link></button>
+                        {/* <button type="submit"><Link to={'/profile'}>Submit</Link></button> */}
                     </form>
 
                     </div>
-                        {this.state.redirect}
+      )
+    }
+        
+            return (
+
+                <>
+                
+                        {output}
                         
                 </>
                 

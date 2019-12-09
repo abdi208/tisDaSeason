@@ -1,12 +1,15 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 class Profile extends React.Component  {
     state = {
         lovedOnes: [],
         name: '',
-        age: ''
+        age: '',
+        redirect: ''
     }
     componentDidMount = () => {
         let config = {
@@ -27,25 +30,6 @@ class Profile extends React.Component  {
             
         });
     }
-
-    handleOnSubmit = (e) => {
-        e.preventDefault()
-        let config = {
-            headers: {
-                Authorization: `Bearer ${this.props.token}`
-            }
-        }
-        axios.post('http://localhost:3001/api/lovedones', {
-            name: this.state.name,
-            age: this.state.age,
-        }, config).then(response => {
-            this.setState({
-                name: this.state.name,
-                age: this.state.age,
-                lovedone: this.state.lovedone
-            })
-        })
-    }
     render() {
         
         const mappedLovedOnes = this.state.lovedOnes.map((lovedone, id) => <p key={id}><Link to ={`/lovedonedetail/${lovedone._id}`}>{lovedone.name}</Link></p>)
@@ -54,11 +38,6 @@ class Profile extends React.Component  {
             <>
             <h1>WELCOME TO YOUR PROFILE PAGE</h1>
             {mappedLovedOnes}
-            <form onSubmit={this.handleOnSubmit}>
-                <input type="text" name="name" onChange={this.handleChange} value={this.state.name} placeholder='Enter a name'/> <br/>
-                <input type="text" name="age" onChange={this.handleChange} value={this.state.age} placeholder='Enter an age'/> <br />
-                <button type="submit"> <Link to={'/'}>Submit</Link></button>
-            </form>
             
             </>
         )

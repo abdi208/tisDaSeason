@@ -1,15 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import HomeTemplate from './HomeTemplate'
-
+import './css/homepage.css';
 const Homepage = () => {
     return (
-        
-        <div className="App">
-            <h1>'tisDaSeason</h1>
+        <div className='homepage'>
+        <div className="text">
 
             
             <HomeTemplate />
+        </div>
+
         </div>
     
 

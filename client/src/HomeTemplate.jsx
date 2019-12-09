@@ -14,15 +14,21 @@ export default function HomeTemplate() {
   const classes = useStyles();
 
   return (
-    <Paper className={classes.root}>
-      <Typography variant="h5" component="h3">
-        Create Gifts for all your lovedones.
+    <Paper className={classes.root} style={{background: 'none', height: '100vh' }}>
+      <Typography style={{fontSize: '50px', color: 'red', display: 'inline-block', marginTop: '39vh' }} variant="h5" component="h3">
+      'tis
+      </Typography>
+      <Typography style={{fontSize: '50px', color: 'green', display: 'inline-block', marginTop: '39vh' }} variant="h5" component="h3">
+      Da
+      </Typography>
+      <Typography style={{fontSize: '50px', color: 'blue',  display: 'inline-block', marginTop: '39vh' }} variant="h5" component="h3">
+      Season 
       </Typography>
       <Typography component="p">
         
       </Typography>
-      <Button><Link to='/login'>Login</Link></Button>
-            <Button><Link to='/signup'>Signup</Link></Button>
+      <Button style={{fontSize: '50px', color: 'red', display: 'inline-block', marginTop: '5vh' }}><Link to='/login'>Login</Link></Button>
+            <Button style={{fontSize: '50px', color: 'blue',  display: 'inline-block', marginTop: '5vh' }} ><Link to='/signup'>Signup</Link></Button>
     </Paper>
   );
 }

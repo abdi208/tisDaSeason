@@ -4,6 +4,7 @@ import Signup from './Signup';
 import Login from './Login';
 import Profile from './Profile';
 import Homepage from './Homepage';
+import CreateLovedOne from './CreateLovedone';
 import axios from 'axios';
 
 import { 
@@ -112,6 +113,7 @@ class App extends React.Component {
         <Route exact path ='/profile' render={ ()=> <Profile token={this.state.token} /> } />
         <Route exact path ='/lovedonedetail/:id' render={ (props) => <LovedOneDetail  {...props} token={this.state.token} /> } />
         <Route exact path ='/lovedone/:id/giftedit/:gid' render={ (props) => <GiftEdit  {...props} token={this.state.token} /> } />
+        <Route exact path ='/createlovedone' render={ (props) => <CreateLovedOne  {...props} token={this.state.token} /> } />
       </Router>
     )
   }

@@ -1,0 +1,9 @@
+
+.homepage{
+    background-image:url('../img/holidaysHeader.png');
+    height: 100vh;
+}
+.text {
+    text-align: center;
+    background: none;
+}

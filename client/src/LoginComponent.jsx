@@ -1,5 +1,5 @@
 import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
+// import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
     height: '100vh',
     },
     image: {
-    backgroundImage: 'url(https://source.unsplash.com/random)',
+    backgroundImage: 'url(https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/christmas-gifts-web-1573846030.png?crop=0.502xw:1.00xh;0.486xw,0&resize=640:*)',
     backgroundRepeat: 'no-repeat',
     backgroundColor:
         theme.palette.type === 'dark' ? theme.palette.grey[900] : theme.palette.grey[50],
@@ -66,9 +66,9 @@ export default function LoginComponent(props) {
         <Grid item xs={false} sm={4} md={7} className={classes.image} />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
-            <Avatar className={classes.avatar}>
+            {/* <Avatar className={classes.avatar}> */}
             {/* <LockOutlinedIcon /> */}
-            </Avatar>
+            {/* </Avatar> */}
             <Typography component="h1" variant="h5">
             Sign in
             </Typography>
@@ -99,10 +99,6 @@ export default function LoginComponent(props) {
                 id="password"
                 autoComplete="current-password"
             />
-            <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-            />
             <Button
                 onSubmit={props.handleSubmit}
                 type="submit"
@@ -113,21 +109,6 @@ export default function LoginComponent(props) {
             >
                 Sign In
             </Button>
-            <Grid container>
-                <Grid item xs>
-                <Link href="#" variant="body2">
-                    Forgot password?
-                </Link>
-                </Grid>
-                <Grid item>
-                <Link href="#" variant="body2">
-                    {"Don't have an account? Sign Up"}
-                </Link>
-                </Grid>
-            </Grid>
-            <Box mt={5}>
-                <Copyright />
-            </Box>
             </form>
         </div>
         </Grid>
