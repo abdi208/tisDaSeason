@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import HomeTemplate from './HomeTemplate'
 
 const Homepage = () => {
     return (
@@ -8,11 +8,9 @@ const Homepage = () => {
         <div className="App">
             <h1>'tisDaSeason</h1>
 
-            <button><Link to='/login'>Login</Link></button>
-            <button><Link to='/signup'>Signup</Link></button>
-
+            
+            <HomeTemplate />
         </div>
-
     
 
     )

@@ -65,6 +65,7 @@ class LovedOneDetail extends React.Component {
                     <form onSubmit={this.handleSubmit}>
                         <input type="text" onChange={this.handleChange} name='name' placeholder='Create a gift'/><br />
                         <input type="submit"></input>
+                        <button><Link to={'/profile'}>profile</Link></button>
                     </form>
 
                     </div>
