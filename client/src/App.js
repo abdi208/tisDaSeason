@@ -100,7 +100,7 @@ class App extends React.Component {
             </div> */}
 
           </nav>
-          <p>{this.state.lockedResults}</p>
+          {/* <p>{this.state.lockedResults}</p> */}
 
         </>
       )

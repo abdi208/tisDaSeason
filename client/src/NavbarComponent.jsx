@@ -53,7 +53,7 @@ const useStyles = makeStyles(theme => ({
     }, [open]);
 
     return (
-    <div className={classes.root}>
+    <div style={{backgroundColor: 'salmon'}} className={classes.root}>
         <div>
         <Button
             ref={anchorRef}

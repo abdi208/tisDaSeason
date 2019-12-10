@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import './css/homepage.css';
+import { TextField } from '@material-ui/core';
 class GiftEdit extends React.Component {
     state = {
         name: '',
@@ -61,33 +62,33 @@ class GiftEdit extends React.Component {
         
         return (
             <>
-            <div className='text'>
+            <div className='App'>
 
-            <h1>Shop on Amazon NOW!!!!......</h1>
-            <form onSubmit={this.handleNewSubmit}>
-            <input type="text" value={`${this.state.gifts.name}`} onChange={this.handleChange}/>
-            <button><a href={`https://www.amazon.com/s?k=${this.state.gifts.name}` } rel="noopener noreferrer" target="_blank">Compare Prices</a></button>
+            <h1 style={{fontFamily: 'Mountains of Christmas', fontSize: '35px', textDecoration: 'none', marginTop: '0px'}}>Shop on Amazon NOW!!!!......</h1>
+            <form style={{marginTop: '5vh', backgroundColor: 'salmon' }} onSubmit={this.handleNewSubmit}>
+            <TextField type="text" value={`${this.state.gifts.name}`} onChange={this.handleChange}/>
+            <Button style={{fontFamily: 'Mountains of Christmas', fontSize: '15px', textDecoration: 'none'}} ><a style={{textDecoration: 'none', color: 'black'}}href={`https://www.amazon.com/s?k=${this.state.gifts.name}` } rel="noopener noreferrer" target="_blank">Compare Prices</a></Button>
             
             </form>
-            </div>
-            <h1 className='text'>Update your gift item below...</h1>
+            <h1 style={{fontFamily: 'Mountains of Christmas', fontSize: '25px'}} className='text'>Update your gift item below...</h1>
             <div className='text'>
                 <form onSubmit={this.handleSubmit}>
-                        <input type="text" onChange={this.handleChange} name='name' placeholder='Add your deals found'/><br />
-                        <input type="text" onChange={this.handleChange} name='price' placeholder='Add the price'/><br />
-                        <Button type="submit">Submit</Button>
+                        <TextField style={{fontFamily: 'Mountains of Christmas', fontSize: '25px'}} type="text" onChange={this.handleChange} name='name' placeholder='Add your deals found'/><br />
+                        <TextField style={{fontFamily: 'Mountains of Christmas', fontSize: '25px'}} type="text" onChange={this.handleChange} name='price' placeholder='Add the price'/><br />
+                        <Button style={{fontFamily: 'Mountains of Christmas', fontSize: '25px'}} type="submit">Submit</Button>
                 </form>
             </div>
             <div className='text'>
-                <h3>
-                    {this.state.gifts.name}, 
+                <h3 style={{fontFamily: 'Mountains of Christmas', fontSize: '25px'}} >
+                    {this.state.gifts.name} 
 
                 </h3>
 
                 </div>
-                <div className='text'>
-                ${this.state.gifts.price}
+                <div style={{fontFamily: 'Mountains of Christmas', fontSize: '25px'}}  className='text'>
+                {this.state.gifts.price}
 
+            </div>
             </div>
 
                 {this.state.redirect}

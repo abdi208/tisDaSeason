@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Link, Redirect } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
+import { TextField } from '@material-ui/core';
 class LovedOneDetail extends React.Component {
 
     state = {
@@ -56,26 +57,21 @@ class LovedOneDetail extends React.Component {
     }
 
         render () {
-    const mappedGifts = this.state.lovedone.map((lovedone, id) => <div key={id}><p ><Link  style={{fontSize: '25px', color: 'red', textDecoration: 'none'}} to={`/lovedone/${this.props.match.params.id}/giftedit/${lovedone._id}`}>{lovedone.name}</Link></p></div>)
+    const mappedGifts = this.state.lovedone.map((lovedone, id) => <div key={id}><span style={{ flexDirection:'row' }} ><Link  style={{fontSize: '25px', color: 'black', textDecoration: 'none', fontFamily: 'Mountains of Christmas'}} to={`/lovedone/${this.props.match.params.id}/giftedit/${lovedone._id}`}> 🎁 {lovedone.name}</Link></span></div>)
             return (
 
                 <>
-                <div style={{backgroundImage: 'url("https://image.businessinsider.com/5dc1c88b3afd37770b66db27?width=1100&format=jpeg&auto=webp") ', height:'10vh', width: '100vw' , backgroundSize: '100%, 100%'}}>
                 <div className='App'>
-                    <h1>welcome to details</h1>
                     {mappedGifts}
-                    <form style={{marginTop: '100px'}}onSubmit={this.handleSubmit}>
-                        <input type="text" onChange={this.handleChange} name='name' placeholder='Create a gift'/><br />
+                    <form onSubmit={this.handleSubmit}>
+                        <TextField style={{marginTop: '50vh', backgroundColor: 'salmon', fontFamily: 'Mountains of Christmas' }} type="text" onChange={this.handleChange} name='name' placeholder='Create a gift'/><br />
                         <input type="hidden" onChange={this.handleChange} name='price' placeholder='add a price'/><br />
-                        <Button style={{color: 'black', textDecoration: 'none'}} type="submit">Submit</Button>
+                        <Button style={{color: 'black', textDecoration: 'none', fontFamily: 'Mountains of Christmas', fontSize: '25px'}} type="submit">Submit</Button>
                         
                     </form>
-                    
-
-                    
                 </div>
 
-                </div>
+                
                     {this.state.redirect}
                 </>
                 

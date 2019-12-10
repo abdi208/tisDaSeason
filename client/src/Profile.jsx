@@ -31,12 +31,15 @@ class Profile extends React.Component  {
     }
     render() {
         
-        const mappedLovedOnes = this.state.lovedOnes.map((lovedone, id) => <p key={id}><Link to ={`/lovedonedetail/${lovedone._id}`}>{lovedone.name}</Link></p>)
+        const mappedLovedOnes = this.state.lovedOnes.map((lovedone, id) => <p key={id}><Link style={{textDecoration: 'none',fontFamily: 'Mountains of Christmas', fontSize: '30px', color: 'black'}} to ={`/lovedonedetail/${lovedone._id}`}>{lovedone.name}</Link></p>)
         
         return (
             <>
-            <div className='text'>
-            <h1>WELCOME TO YOUR PROFILE PAGE</h1>
+            <div className='App'>
+            <h1 style={{fontFamily: 'Mountains of Christmas', marginTop: '0px', fontSize: '50px', display: 'inline-block', color: 'red'}}>WELCOME</h1>
+            <h1 style={{fontFamily: 'Mountains of Christmas', marginTop: '0px',marginLeft: '25px', fontSize: '50px', display: 'inline-block', color: 'green'}}>TO</h1>
+            <h1 style={{fontFamily: 'Mountains of Christmas', marginTop: '0px', fontSize: '50px', marginLeft: '25px', display: 'inline-block'}}>YOUR</h1>
+            <h1 style={{fontFamily: 'Mountains of Christmas', marginTop: '0px', fontSize: '50px', marginLeft: '25px', color: 'blue', display: 'inline-block'}}>PROFILE PAGE</h1>
 
             {mappedLovedOnes}
             </div>

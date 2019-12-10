@@ -43,11 +43,12 @@ class CreateLovedOne extends React.Component {
     render() {
         return(
             <>
-            <div className='text'>
+            <div className='App'>
+                <h1 style={{fontFamily: 'Mountains of Christmas', marginTop: '0px', fontSize: '100px'}}> Add your loved one below</h1>
                 <form onSubmit={this.handleOnSubmit}>
-                <TextField type="text" name="name" onChange={this.handleChange} value={this.state.name} placeholder='Enter a name'/> <br/>
-                <TextField type="text" name="age" onChange={this.handleChange} value={this.state.age} placeholder='Enter an age'/> <br />
-                <Button type="submit">Submit</Button>
+                <TextField style={{marginTop: '15vh', backgroundColor: 'salmon',fontFamily: 'Mountains of Christmas' }} type="text" name="name" onChange={this.handleChange} value={this.state.name} placeholder='Enter a name'/> <br/>
+                <TextField style={{backgroundColor: 'salmon' , fontFamily: 'Mountains of Christmas'}} type="text" name="age" onChange={this.handleChange} value={this.state.age} placeholder='Enter an age'/> <br />
+                <Button style={{fontFamily: 'Mountains of Christmas', fontSize: '25px'}} type="submit">Submit</Button>
             </form>
 
             </div>
