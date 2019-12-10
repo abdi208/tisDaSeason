@@ -5,8 +5,9 @@ import Login from './Login';
 import Profile from './Profile';
 import Homepage from './Homepage';
 import CreateLovedOne from './CreateLovedone';
+import Navbar from './NavbarComponent'
 import axios from 'axios';
-
+import { Link} from 'react-router-dom';
 import { 
   BrowserRouter as Router,
   Route
@@ -89,7 +90,16 @@ class App extends React.Component {
       contents = (
         <>
           {/* <button onClick={this.handleClick}>Test the protected route</button> */}
-          <button onClick={this.logout}>Logout</button><br />
+          <nav >
+            <Navbar logout={this.logout}/>
+            {/* <div style={{display: 'inline-block'}}>
+              
+          <Link style={{display: 'inline-block', textDecoration: 'none'}} onClick={this.logout}>Logout</Link><br />
+          <Link  style={{display: 'inline-block', textDecoration: 'none'}}to='/profile'>Profile</Link><br />
+          <Link  style={{display: 'inline', textDecoration: 'none'}} to='/createlovedone'>Create</Link><br />
+            </div> */}
+
+          </nav>
           <p>{this.state.lockedResults}</p>
 
         </>
@@ -97,8 +107,11 @@ class App extends React.Component {
     } else {
       contents = (
       <>
-        {/* <Signup liftToken={this.liftToken} />
-        <Login liftToken={this.liftToken} /> */}
+      {/* <nav style={{display: 'inline-block'}}>
+      <Link to='/signup'>Signup</Link><br />
+      <Link to='/login'>Login</Link><br />
+
+      </nav> */}
 
       </>
       )
