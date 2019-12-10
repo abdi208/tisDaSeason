@@ -40,8 +40,8 @@ router.post('/lovedones/:id/gifts', (req, res) => {
         User.findById(req.user._id, (err, user) => {
             
                 user.lovedOnes.id(req.params.id).gifts.push(gift)
+                res.json(user.lovedOnes.id(req.params.id).gifts)
                 user.save()
-            
         })
     })
 })

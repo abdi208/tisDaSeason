@@ -50,9 +50,6 @@ class LovedOneDetail extends React.Component {
                 price: this.state.price,
                 
             })
-        }).catch(err => {
-            console.log(err)
-            console.log(this.state.redirect)
         })
     
     }
