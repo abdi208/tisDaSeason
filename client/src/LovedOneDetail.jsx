@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 class LovedOneDetail extends React.Component {
 
@@ -8,6 +8,7 @@ class LovedOneDetail extends React.Component {
         lovedone: [],
         name: '',
         price: '',
+        redirect: ''
     }
 
     componentDidMount = () => {
@@ -48,28 +49,34 @@ class LovedOneDetail extends React.Component {
             this.setState({
                 name: this.state.name,
                 price: this.state.price,
-                
+                redirect: <Redirect to={'/profile'}/>
             })
         })
     
     }
 
         render () {
-    const mappedGifts = this.state.lovedone.map((lovedone, id) => <div key={id}><p><Link to={`/lovedone/${this.props.match.params.id}/giftedit/${lovedone._id}`}>{lovedone.name}</Link></p></div>)
+    const mappedGifts = this.state.lovedone.map((lovedone, id) => <div key={id}><p ><Link  style={{fontSize: '25px', color: 'red', textDecoration: 'none'}} to={`/lovedone/${this.props.match.params.id}/giftedit/${lovedone._id}`}>{lovedone.name}</Link></p></div>)
             return (
 
                 <>
+                <div style={{backgroundImage: 'url("https://image.businessinsider.com/5dc1c88b3afd37770b66db27?width=1100&format=jpeg&auto=webp") ', height:'10vh', width: '100vw' , backgroundSize: '100%, 100%'}}>
                 <div className='App'>
                     <h1>welcome to details</h1>
                     {mappedGifts}
-                    <form onSubmit={this.handleSubmit}>
+                    <form style={{marginTop: '100px'}}onSubmit={this.handleSubmit}>
                         <input type="text" onChange={this.handleChange} name='name' placeholder='Create a gift'/><br />
                         <input type="hidden" onChange={this.handleChange} name='price' placeholder='add a price'/><br />
-                        <Button type="submit"><Link style={{color: 'black', textDecoration: 'none'}} to={'/profile'}>Submit</Link></Button>
+                        <Button style={{color: 'black', textDecoration: 'none'}} type="submit">Submit</Button>
                         
                     </form>
+                    
+
+                    
                 </div>
-                        
+
+                </div>
+                    {this.state.redirect}
                 </>
                 
             )
