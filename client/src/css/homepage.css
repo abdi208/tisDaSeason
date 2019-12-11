@@ -1,7 +1,8 @@
 
 .homepage{
-    background-image:url('../img/holidaysHeader.png');
+    background-image:url('../img/gift.jpg');
     height: 100vh;
+    background-size: 100%, 100%;
 }
 .text {
     text-align: center;
