@@ -71,7 +71,6 @@ class App extends React.Component {
     })
   }
   handleClick = () => {
-    //need this for all axios routes
     let config = {
       headers: {
         Authorization: `Bearer ${this.state.token}`
@@ -89,29 +88,17 @@ class App extends React.Component {
     if(this.state.user) {
       contents = (
         <>
-          {/* <button onClick={this.handleClick}>Test the protected route</button> */}
           <nav >
             <Navbar logout={this.logout}/>
-            {/* <div style={{display: 'inline-block'}}>
-              
-          <Link style={{display: 'inline-block', textDecoration: 'none'}} onClick={this.logout}>Logout</Link><br />
-          <Link  style={{display: 'inline-block', textDecoration: 'none'}}to='/profile'>Profile</Link><br />
-          <Link  style={{display: 'inline', textDecoration: 'none'}} to='/createlovedone'>Create</Link><br />
-            </div> */}
 
           </nav>
-          {/* <p>{this.state.lockedResults}</p> */}
+          
 
         </>
       )
     } else {
       contents = (
       <>
-      {/* <nav style={{display: 'inline-block'}}>
-      <Link to='/signup'>Signup</Link><br />
-      <Link to='/login'>Login</Link><br />
-
-      </nav> */}
 
       </>
       )

@@ -23,7 +23,6 @@ class Login extends React.Component {
     }
     handleSubmit = (e) => {
         e.preventDefault()
-        console.log('working')
         axios.post('http://localhost:3001/auth/login', {
             email: this.state.email,
             password: this.state.password
@@ -40,30 +39,6 @@ class Login extends React.Component {
         })
     }
     render() {
-        // var output;
-        // if (this.state.redirect) {
-        // output = this.state.redirect;
-        // } else {
-        //   output = (
-            
-        //     // <div className="App">
-
-        //     //     <div className="Login">
-        //     //         <h3>Log into your Account</h3>
-        //     //         <form onSubmit={this.handleSubmit}>
-        //     //             Email: <input type="text" name="email" onChange={this.handleEmailChange} value={this.state.email}/>
-        //     //             Password: <input type="password" name="password" onChange={this.handlePasswordChange} value={this.state.password}/> 
-        //     //             <Button type="submit" value="Log In" variant="contained" color="primary">Submit</Button>
-        //     //         </form>
-        //     //     </div>
-    
-        //     //     </div>
-        //   )
-        // }
-        
-                
-                
-            
         
         return (
             <>

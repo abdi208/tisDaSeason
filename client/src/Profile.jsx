@@ -19,7 +19,6 @@ class Profile extends React.Component  {
         }
         axios.get('http://localhost:3001/api/lovedones', config)
             .then( response => {
-                // console.log(response.data)
                 this.setState({lovedOnes: response.data})
             })
     }
