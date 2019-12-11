@@ -73,7 +73,7 @@ const useStyles = makeStyles(theme => ({
                 <ClickAwayListener onClickAway={handleClose}>
                     <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
                     <MenuItem onClick={handleClose}><Link  style={{display: 'inline', textDecoration: 'none'}} to='/profile'>Profile</Link></MenuItem>
-                    <MenuItem onClick={handleClose}><Link style={{display: 'inline-block', textDecoration: 'none'}} onClick={props.logout}>Logout</Link></MenuItem>
+                    <MenuItem onClick={handleClose}><Link style={{display: 'inline-block', textDecoration: 'none'}} onClick={props.logout} to='/'>Logout</Link></MenuItem>
                     <MenuItem onClick={handleClose}><Link  style={{display: 'inline', textDecoration: 'none'}} to='/createlovedone'>Create</Link></MenuItem>
                     </MenuList>
                 </ClickAwayListener>

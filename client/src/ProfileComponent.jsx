@@ -25,13 +25,8 @@ export default function ProfileComponent(props) {
       <React.Fragment>
         <Grid style={{marginLeft: '31vw'}}item xs={4}>
           {mappedLovedOnes}
+          
         </Grid>
-        {/* <Grid item xs={4}>
-          <Paper className={classes.paper}>item</Paper>
-        </Grid>
-        <Grid item xs={4}>
-          <Paper className={classes.paper}>item</Paper>
-        </Grid> */}
       </React.Fragment>
     );
   }
@@ -42,12 +37,6 @@ export default function ProfileComponent(props) {
         <Grid container item xs={12} spacing={3}>
           <FormRow />
         </Grid>
-        {/* <Grid container item xs={12} spacing={3}>
-          <FormRow />
-        </Grid>
-        <Grid container item xs={12} spacing={3}>
-          <FormRow />
-        </Grid> */}
       </Grid>
     </div>
   );

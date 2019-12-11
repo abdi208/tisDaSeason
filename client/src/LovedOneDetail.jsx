@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link, Redirect } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import { TextField } from '@material-ui/core';
+// import LovedOneComponent from './LovedOneComponent'
 class LovedOneDetail extends React.Component {
 
     state = {
@@ -63,6 +64,7 @@ class LovedOneDetail extends React.Component {
                 <>
                 <div className='App'>
                     {mappedGifts}
+                    {/* <LovedOneComponent lovedone={this.state.lovedone} /> */}
                     <form onSubmit={this.handleSubmit}>
                         <TextField style={{marginTop: '50vh', backgroundColor: 'salmon', fontFamily: 'Mountains of Christmas' }} type="text" onChange={this.handleChange} name='name' placeholder='Create a gift'/><br />
                         <input type="hidden" onChange={this.handleChange} name='price' placeholder='add a price'/><br />
@@ -71,7 +73,6 @@ class LovedOneDetail extends React.Component {
                     </form>
                 </div>
 
-                
                     {this.state.redirect}
                 </>
                 
