@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import ProfileComponent from './ProfileComponent'
 import './css/homepage.css';
 
 class Profile extends React.Component  {
@@ -40,8 +41,8 @@ class Profile extends React.Component  {
             <h1 style={{fontFamily: 'Mountains of Christmas', marginTop: '0px',marginLeft: '25px', fontSize: '50px', display: 'inline-block', color: 'green'}}>TO</h1>
             <h1 style={{fontFamily: 'Mountains of Christmas', marginTop: '0px', fontSize: '50px', marginLeft: '25px', display: 'inline-block'}}>YOUR</h1>
             <h1 style={{fontFamily: 'Mountains of Christmas', marginTop: '0px', fontSize: '50px', marginLeft: '25px', color: 'blue', display: 'inline-block'}}>PROFILE PAGE</h1>
-
-            {mappedLovedOnes}
+            <ProfileComponent lovedOnes={this.state.lovedOnes}/>
+            
             </div>
             
             </>
