@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(helmet())
 app.use(cors())
 
-mongoose.connect(process.env.MONGODB_URL, {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true})
 const db = mongoose.connection;
 
 db.once('open', () => {
@@ -24,9 +24,9 @@ db.on('error', (err) => {
 
 app.use('/auth', require('./routes/auth'))
 app.use('/api', expressJWT({ secret: process.env.JWT_SECRET }), require('./routes/api'));
-// app.use('/locked', 
-//         expressJWT({ secret: process.env.JWT_SECRET}).unless({method: 'POST'}),
-//         require('./routes/locked'))
+app.get('*', (req, res) => {
+    res.sendFile(__dirname + '/client/build/index.html')
+})
 
 app.listen(process.env.PORT, () => {
     console.log(`listening to port ${process.env.PORT}`)
