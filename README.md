@@ -14,7 +14,7 @@
 
 ### Day 1
 
-    I spent most of the day creating my wirframes for my front-end and writing out the routes for my back-end.
+I spent most of the day creating my wirframes for my front-end and writing out the routes for my back-end.
 
 ### Day 2 - 3
     Over the weekend I created my data on postman for all my routes and then after creating my JXS componenets I made sure my data flowed from my back-end routes.
